@@ -6,3 +6,4 @@
 - `docs/01-current-architecture-analysis.md`: 현재 MSA 구조 분석
 - `docs/02-monolith-implementation-plan.md`: 모놀리식 전환 구현 계획
 - `docs/03-monolith-package-design.md`: 모놀리식 패키지/모듈 설계
+- `docs/04-monolith-execution-roadmap.md`: 실제 구현 로드맵과 체크리스트
