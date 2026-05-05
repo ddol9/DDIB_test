@@ -53,3 +53,10 @@ logging:
   level:
     root: INFO
 
+jwt:
+  secret: ${JWT_SECRET:dfjejfjfwqiophwoivhwqhhfhwehkhsvewhvqwgovphweoqphvowhf}
+  access-token-validity-seconds: ${JWT_AT_TTL:3600}
+  refresh-token-validity-seconds: ${JWT_RT_TTL:1209600}
+  issuer: ${JWT_ISSUER:ddib-monolith}
+  audience: ${JWT_AUDIENCE:api}
+  clock-skew-seconds: ${JWT_CLOCK_SKEW_SECONDS:60}
