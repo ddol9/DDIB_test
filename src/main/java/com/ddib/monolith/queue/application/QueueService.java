@@ -79,6 +79,11 @@ public class QueueService {
     }
 
     @Transactional
+    public void revokeToken(Long performanceId, Long optionId, String tokenId) {
+        queueStore.revokeToken(performanceId, optionId, tokenId);
+    }
+
+    @Transactional
     public void schedule() {
         for (QueueStore.OptionKey target : queueStore.waitingTargets()) {
             tryIssueTokens(target.performanceId(), target.optionId());

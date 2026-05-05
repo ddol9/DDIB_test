@@ -19,6 +19,8 @@ public interface QueueStore {
 
     QueueToken issueToken(Long performanceId, Long optionId, Long userId, Instant expiresAt);
 
+    void revokeToken(Long performanceId, Long optionId, String tokenId);
+
     List<Long> popWaitingUsers(Long performanceId, Long optionId, long limit);
 
     long countActiveTokens(Long performanceId, Long optionId, Instant now);
@@ -30,4 +32,3 @@ public interface QueueStore {
     record OptionKey(Long performanceId, Long optionId) {
     }
 }
-

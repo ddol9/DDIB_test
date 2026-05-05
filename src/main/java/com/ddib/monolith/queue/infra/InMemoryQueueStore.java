@@ -79,6 +79,23 @@ public class InMemoryQueueStore implements QueueStore {
     }
 
     @Override
+    public synchronized void revokeToken(Long performanceId, Long optionId, String tokenId) {
+        OptionKey key = new OptionKey(performanceId, optionId);
+        Map<String, QueueToken> byToken = activeTokens.get(key);
+        if (byToken == null) {
+            return;
+        }
+        QueueToken removed = byToken.remove(tokenId);
+        if (removed == null) {
+            return;
+        }
+        Map<Long, QueueToken> byUser = userTokens.get(key);
+        if (byUser != null) {
+            byUser.remove(removed.userId());
+        }
+    }
+
+    @Override
     public synchronized List<Long> popWaitingUsers(Long performanceId, Long optionId, long limit) {
         LinkedHashSet<Long> waiting = waitingUsers.get(new OptionKey(performanceId, optionId));
         if (waiting == null || waiting.isEmpty() || limit <= 0) {
@@ -149,4 +166,3 @@ public class InMemoryQueueStore implements QueueStore {
         }
     }
 }
-
