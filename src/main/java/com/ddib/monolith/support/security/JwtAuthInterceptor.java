@@ -20,6 +20,8 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
     private static final List<String> WHITELIST_PATTERNS = List.of(
             "/api/auth/**",
             "/api/public/**",
+            "/api/ticketing/performances",
+            "/api/ticketing/performances/**",
             "/actuator/**",
             "/swagger-ui.html",
             "/swagger-ui/**",
@@ -57,4 +59,3 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
         return WHITELIST_PATTERNS.stream().anyMatch(pattern -> PATH_MATCHER.match(pattern, path));
     }
 }
-
