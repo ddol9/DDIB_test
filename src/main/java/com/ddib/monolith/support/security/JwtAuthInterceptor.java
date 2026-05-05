@@ -22,6 +22,8 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
             "/api/public/**",
             "/api/ticketing/performances",
             "/api/ticketing/performances/**",
+            "/ws",
+            "/ws/**",
             "/actuator/**",
             "/swagger-ui.html",
             "/swagger-ui/**",
