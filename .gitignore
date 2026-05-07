@@ -4,4 +4,5 @@ out/
 .idea/
 *.iml
 .DS_Store
-
+k6/results/*
+!k6/results/.gitkeep
